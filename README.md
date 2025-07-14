@@ -23,3 +23,8 @@ $pip install -r requirements.txt
 $ cp .env.example .env
 ```
 set your enivironment variables in the `.env` file. like `OPEN_APPI_KEY` value.
+
+##run the FASTAPI server 
+```bash 
+$uvicorn main:app --reload --host 0.0.0.0 --port 5000
+```
