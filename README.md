@@ -13,3 +13,13 @@ This is a minimal implementation of RAG model for question answering.
    ```bash
    conda create -n mini-rag python=3.8
 3- activate conda
+## Islallation 
+### install the required packages
+```bash 
+$pip install -r requirements.txt 
+```
+### Setup the environment variables 
+```bash
+$ cp .env.example .env
+```
+set your enivironment variables in the `.env` file. like `OPEN_APPI_KEY` value.
