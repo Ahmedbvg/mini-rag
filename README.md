@@ -28,3 +28,5 @@ set your enivironment variables in the `.env` file. like `OPEN_APPI_KEY` value.
 ```bash 
 $uvicorn main:app --reload --host 0.0.0.0 --port 5000
 ```
+### to open swagger ui use 
+http://localhost:5000/docs as url
