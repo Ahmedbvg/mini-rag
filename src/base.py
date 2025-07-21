@@ -1,4 +1,6 @@
 from fastapi import FastAPI, APIRouter  
+from dotenv import load_dotenv
+
 import os
 base_router = APIRouter(
     prefix="/api/v1", 
@@ -10,5 +12,6 @@ async def welcome():
     app_version = os.getenv('APP_VERSION')
     return {"app_name": app_name,
              "app_version": app_version,
+
             }
             
