@@ -1,28 +1,43 @@
-# src/helpers/config.py
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import Field
 from enum import Enum
 import os
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(
-        env_file=os.path.join(os.path.dirname(__file__), '../.env'),
-        env_file_encoding='utf-8',
-        extra='ignore'
-    )
-    
+
     APP_NAME: str
     APP_VERSION: str
     OPENAI_API_KEY: str
-    FILE_ALLOWED_TYPES: list = Field(default=["text/plain", "application/pdf"])
-    FILE_MAX_SIZE: int = Field(default=10)
-    FILE_DEFAULT_CHUNK_SIZE: int = Field(default=512000)
+
+    FILE_ALLOWED_TYPES: list
+    FILE_MAX_SIZE: int
+    FILE_DEFAULT_CHUNK_SIZE: int
+
     MONGODB_URL: str
     MONGODB_DATABASE: str
 
-def get_settings():  
+    GENERATION_BACKEND: str
+    EMBEDDING_BACKEND: str
+
+    OPENAI_API_KEY: str = None
+    OPENAI_API_URL: str = None
+    COHERE_API_KEY: str = None
+
+    GENERATION_MODEL_ID: str = None
+    EMBEDDING_MODEL_ID: str = None
+    EMBEDDING_MODEL_SIZE: int = None
+    INPUT_DAFAULT_MAX_CHARACTERS: int = None
+    GENERATION_DAFAULT_MAX_TOKENS: int = None
+    GENERATION_DAFAULT_TEMPERATURE: float = None
+
+    VECTOR_DB_BACKEND : str
+    VECTOR_DB_PATH : str
+    VECTOR_DB_DISTANCE_METHOD: str = None
+
+    PRIMARY_LANG: str = "en"
+    DEFAULT_LANG: str = "en"
+
+    class Config:
+        env_file = ".env"
+
+def get_settings():
     return Settings()
-# ⬇ Add this at the end of the file
-class DataBaseEnum(Enum):
-    COLLECTION_PROJECTS_NAME = "projects"
-    COLLECTION_CHUNK_NAME = "chunks"
