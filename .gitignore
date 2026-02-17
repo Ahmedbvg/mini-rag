@@ -1,0 +1,12 @@
+# Ignore environment and virtualenv files
+.env
+.env.local
+.env.*.local
+.venv
+venv/
+__pycache__/
+
+# Optional: OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
